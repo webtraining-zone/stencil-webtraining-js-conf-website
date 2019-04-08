@@ -1,20 +1,19 @@
 import {Component} from '@stencil/core';
+import {HomeMap} from '../app-home-hero/app-home-hero';
 
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.scss',
-  shadow: true,
+  shadow: false,
 })
 export class AppHome {
 
   render() {
     return (
       <div class='app-home'>
-        <stencil-route-link url='/program'>
-          <button>
-            Program
-          </button>
-        </stencil-route-link>
+        {/*<HomeHero/>*/}
+        <HomeMap/>
+        {/*<HomeQuestions/>*/}
       </div>
     );
   }
