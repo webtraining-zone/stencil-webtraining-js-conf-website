@@ -1,19 +1,20 @@
 import {Component} from '@stencil/core';
-import {HomeMap} from '../app-home-hero/app-home-hero';
+import {HomeHero} from '../app-home-hero/app-home-hero';
+import {HomeQuestions} from '../app-home-questions/app-home-questions';
+import {HomeMap} from '../app-home-map/app-home-map';
 
 @Component({
   tag: 'app-home',
-  styleUrl: 'app-home.scss',
-  shadow: false,
+  styleUrls: ['app-home.scss', '../app-home-hero/app-home-hero.scss'],
 })
 export class AppHome {
 
   render() {
     return (
       <div class='app-home'>
-        {/*<HomeHero/>*/}
+        <HomeHero/>
         <HomeMap/>
-        {/*<HomeQuestions/>*/}
+        <HomeQuestions/>
       </div>
     );
   }

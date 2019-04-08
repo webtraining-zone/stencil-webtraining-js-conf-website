@@ -8,8 +8,49 @@
   Any global CSS variables should also be applied here.
 */
 
+@import "variables";
+
 body {
   margin: 0px;
   padding: 0px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.b-navigation-bar {
+  background-image: linear-gradient(271deg, $blue, $orange);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.b-nav-link {
+  color: white;
+  padding: 0 15px;
+  font-weight: bold;
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.b-section {
+
+  &--dark {
+    background: $blue;
+    color: white;
+  }
+
+  &--highlighted {
+    background: darken($blue, 30%);
+    color: white;
+  }
+}
+
+.b-footer {
+  background: black;
+  min-height: 80px;
+  color: white;
+
+  a {
+    color: white;
+  }
 }
