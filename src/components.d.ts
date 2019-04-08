@@ -9,9 +9,6 @@ import '@stencil/core';
 
 import '@stencil/router';
 import '@stencil/state-tunnel';
-import {
-  MatchResults,
-} from '@stencil/router';
 
 
 export namespace Components {
@@ -19,28 +16,39 @@ export namespace Components {
   interface AppHome {}
   interface AppHomeAttributes extends StencilHTMLAttributes {}
 
-  interface AppProfile {
-    'match': MatchResults;
-  }
-  interface AppProfileAttributes extends StencilHTMLAttributes {
-    'match'?: MatchResults;
-  }
+  interface AppProgramAgenda {}
+  interface AppProgramAgendaAttributes extends StencilHTMLAttributes {}
+
+  interface AppProgram {}
+  interface AppProgramAttributes extends StencilHTMLAttributes {}
 
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
+
+  interface AppHeader {}
+  interface AppHeaderAttributes extends StencilHTMLAttributes {}
+
+  interface AppLoader {}
+  interface AppLoaderAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
   interface StencilElementInterfaces {
     'AppHome': Components.AppHome;
-    'AppProfile': Components.AppProfile;
+    'AppProgramAgenda': Components.AppProgramAgenda;
+    'AppProgram': Components.AppProgram;
     'AppRoot': Components.AppRoot;
+    'AppHeader': Components.AppHeader;
+    'AppLoader': Components.AppLoader;
   }
 
   interface StencilIntrinsicElements {
     'app-home': Components.AppHomeAttributes;
-    'app-profile': Components.AppProfileAttributes;
+    'app-program-agenda': Components.AppProgramAgendaAttributes;
+    'app-program': Components.AppProgramAttributes;
     'app-root': Components.AppRootAttributes;
+    'app-header': Components.AppHeaderAttributes;
+    'app-loader': Components.AppLoaderAttributes;
   }
 
 
@@ -50,10 +58,16 @@ declare global {
     new (): HTMLAppHomeElement;
   };
 
-  interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {}
-  var HTMLAppProfileElement: {
-    prototype: HTMLAppProfileElement;
-    new (): HTMLAppProfileElement;
+  interface HTMLAppProgramAgendaElement extends Components.AppProgramAgenda, HTMLStencilElement {}
+  var HTMLAppProgramAgendaElement: {
+    prototype: HTMLAppProgramAgendaElement;
+    new (): HTMLAppProgramAgendaElement;
+  };
+
+  interface HTMLAppProgramElement extends Components.AppProgram, HTMLStencilElement {}
+  var HTMLAppProgramElement: {
+    prototype: HTMLAppProgramElement;
+    new (): HTMLAppProgramElement;
   };
 
   interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {}
@@ -62,16 +76,34 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLAppHeaderElement extends Components.AppHeader, HTMLStencilElement {}
+  var HTMLAppHeaderElement: {
+    prototype: HTMLAppHeaderElement;
+    new (): HTMLAppHeaderElement;
+  };
+
+  interface HTMLAppLoaderElement extends Components.AppLoader, HTMLStencilElement {}
+  var HTMLAppLoaderElement: {
+    prototype: HTMLAppLoaderElement;
+    new (): HTMLAppLoaderElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement
-    'app-profile': HTMLAppProfileElement
+    'app-program-agenda': HTMLAppProgramAgendaElement
+    'app-program': HTMLAppProgramElement
     'app-root': HTMLAppRootElement
+    'app-header': HTMLAppHeaderElement
+    'app-loader': HTMLAppLoaderElement
   }
 
   interface ElementTagNameMap {
     'app-home': HTMLAppHomeElement;
-    'app-profile': HTMLAppProfileElement;
+    'app-program-agenda': HTMLAppProgramAgendaElement;
+    'app-program': HTMLAppProgramElement;
     'app-root': HTMLAppRootElement;
+    'app-header': HTMLAppHeaderElement;
+    'app-loader': HTMLAppLoaderElement;
   }
 
 
