@@ -1,6 +1,6 @@
-class API {
-  static serverURL = "http://conference.webtraining.fun";
-  static serverImagesURL = "http://conference.webtraining.fun";
-}
+const API = {
+  serverURL: 'http://conference.webtraining.fun',
+  serverImagesURL: 'http://conference.webtraining.fun',
+};
 
 export default API;
