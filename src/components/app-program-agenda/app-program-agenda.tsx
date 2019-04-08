@@ -1,11 +1,11 @@
 import FixUtils from '../../helpers/FixUtils';
 import API from './../../config/API';
-import {Loader} from '../common/Loader/Loader';
 import DateUtils from '../../helpers/DateUtils';
 import {Component, State} from '@stencil/core';
 
 @Component({
   tag: 'app-program-agenda',
+  styleUrl: 'app-program-agenda.scss',
 })
 export class ProgramAgenda {
 
