@@ -68,9 +68,10 @@ export class ProgramTalkDetail {
                 <div class="col-12">
                   <div class="mt-5">
                     <div
-                      class="text-center text-sm-left">
+                      class="text-center text-sm-left"
+                      innerHTML={this.talk.description}>
                       {/*{this.createMarkup(this.talk)}*/}
-                      {this.talk.description}
+
                     </div>
                   </div>
                 </div>
