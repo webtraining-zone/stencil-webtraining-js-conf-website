@@ -2,11 +2,13 @@
 :root {
   --orange-color: #ed6009;
   --blue-color: #5862ec;
+  --dark-blue-color: #5411b7;
 }
 
-.b-navigation-bar {
-  background-image: linear-gradient(271deg, var(--blue-color), var(--orange-color));
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.navbar.b-navigation-bar {
+  background-image: linear-gradient(271deg, var(--dark-blue-color), var(--orange-color));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  padding: 1rem 1rem;
 }
 
 .b-nav-link {
@@ -16,6 +18,7 @@
 
   &:hover {
     color: white;
+    text-decoration: none;
   }
 }
 
