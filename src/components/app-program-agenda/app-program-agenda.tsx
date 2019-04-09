@@ -13,6 +13,8 @@ export class ProgramAgenda {
   @State() error = null;
   @State() isLoaded = false;
 
+  // @Prop() history?: RouterHistory;
+
   componentDidLoad() {
     fetch(`${API.serverURL}/api/talks/`).
       then(response => response.json()).
@@ -36,8 +38,12 @@ export class ProgramAgenda {
   // this.props.history.push(`/program/${talk.slug}`);
   // this.setState({navigate: true});
   // };
-  handleClick = (talk) => {
-    console.log(talk);
+  // handleClick = () => {
+  // this.history.push(`/program/talk/${talk.slug}`);
+  // };
+
+  getNavigationURL = (talk) => {
+    return `/program/talk/${talk.slug}`;
   };
 
   render() {
@@ -47,6 +53,7 @@ export class ProgramAgenda {
     } else if (!this.isLoaded) {
       return <app-loader/>;
     } else {
+      // console.log('HISTORY', this.history);
       return (<section class="b-section b-section--news mt-5">
           <div class="container">
             <div class="row">
@@ -72,30 +79,35 @@ export class ProgramAgenda {
                         <div class="row">
                           <div
                             class="col-12 col-sm-7 col-md-5 col-lg-4 col-xl-4">
-                            <img src={FixUtils.fixImageURL(talk.thumbnail)}
-                                 class="img-fluid rounded b-schedule-item__image"
-                                 onClick={() => this.handleClick(talk)}/>
+                            <stencil-route-link
+                              url={this.getNavigationURL(talk)}>
+                              <img src={FixUtils.fixImageURL(talk.thumbnail)}
+                                   class="img-fluid rounded b-schedule-item__image"/>
+                            </stencil-route-link>
                           </div>
                           <div
-                            class="col-12 col-sm-7 col-md-7 col-lg-8 col-xl-8">
-                            <span
-                              class="b-schedule-item__place text-uppercase">
-                              {talk.room.name}
-                              </span>
-                            <a href="#"
-                               onClick={() => this.handleClick(talk)}>
-                              <h4 class="b-schedule-item__title">
+                            class='col-12 col-sm-7 col-md-7 col-lg-8 col-xl-8'>
+                                 <span
+                                   class='b-schedule-item__place text-uppercase'>
+                               {talk.room.name}
+                                 </span>
+                            {/*<a href='#'*/}
+                            {/*onClick={() => this.handleClick()}>*/}
+                            <stencil-route-link
+                              url={this.getNavigationURL(talk)}>
+                              <h4 class='b-schedule-item__title'>
                                 {talk.title}
                               </h4>
-                            </a>
+                            </stencil-route-link>
+                            {/*</a>*/}
 
                             <p>
                               <strong>Conferencista: </strong>
                               <span
-                                class="b-schedule-item__speaker">{talk.speaker.name}</span>
+                                class='b-schedule-item__speaker'>{talk.speaker.name}</span>
                             </p>
 
-                            <p class="b-schedule-item__summary">
+                            <p class='b-schedule-item__summary'>
                               {talk.summary}
                             </p>
                           </div>
@@ -109,6 +121,8 @@ export class ProgramAgenda {
           </div>
         </section>
       );
+
     }
   }
 }
+

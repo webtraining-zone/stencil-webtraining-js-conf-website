@@ -9,6 +9,9 @@ import '@stencil/core';
 
 import '@stencil/router';
 import '@stencil/state-tunnel';
+import {
+  MatchResults,
+} from '@stencil/router';
 
 
 export namespace Components {
@@ -18,6 +21,13 @@ export namespace Components {
 
   interface AppProgramAgenda {}
   interface AppProgramAgendaAttributes extends StencilHTMLAttributes {}
+
+  interface AppProgramTalkDetail {
+    'match': MatchResults;
+  }
+  interface AppProgramTalkDetailAttributes extends StencilHTMLAttributes {
+    'match'?: MatchResults;
+  }
 
   interface AppProgram {}
   interface AppProgramAttributes extends StencilHTMLAttributes {}
@@ -36,6 +46,7 @@ declare global {
   interface StencilElementInterfaces {
     'AppHome': Components.AppHome;
     'AppProgramAgenda': Components.AppProgramAgenda;
+    'AppProgramTalkDetail': Components.AppProgramTalkDetail;
     'AppProgram': Components.AppProgram;
     'AppRoot': Components.AppRoot;
     'AppHeader': Components.AppHeader;
@@ -45,6 +56,7 @@ declare global {
   interface StencilIntrinsicElements {
     'app-home': Components.AppHomeAttributes;
     'app-program-agenda': Components.AppProgramAgendaAttributes;
+    'app-program-talk-detail': Components.AppProgramTalkDetailAttributes;
     'app-program': Components.AppProgramAttributes;
     'app-root': Components.AppRootAttributes;
     'app-header': Components.AppHeaderAttributes;
@@ -62,6 +74,12 @@ declare global {
   var HTMLAppProgramAgendaElement: {
     prototype: HTMLAppProgramAgendaElement;
     new (): HTMLAppProgramAgendaElement;
+  };
+
+  interface HTMLAppProgramTalkDetailElement extends Components.AppProgramTalkDetail, HTMLStencilElement {}
+  var HTMLAppProgramTalkDetailElement: {
+    prototype: HTMLAppProgramTalkDetailElement;
+    new (): HTMLAppProgramTalkDetailElement;
   };
 
   interface HTMLAppProgramElement extends Components.AppProgram, HTMLStencilElement {}
@@ -91,6 +109,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement
     'app-program-agenda': HTMLAppProgramAgendaElement
+    'app-program-talk-detail': HTMLAppProgramTalkDetailElement
     'app-program': HTMLAppProgramElement
     'app-root': HTMLAppRootElement
     'app-header': HTMLAppHeaderElement
@@ -100,6 +119,7 @@ declare global {
   interface ElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-program-agenda': HTMLAppProgramAgendaElement;
+    'app-program-talk-detail': HTMLAppProgramTalkDetailElement;
     'app-program': HTMLAppProgramElement;
     'app-root': HTMLAppRootElement;
     'app-header': HTMLAppHeaderElement;

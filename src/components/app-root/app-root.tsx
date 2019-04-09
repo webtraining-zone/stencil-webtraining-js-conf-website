@@ -13,10 +13,12 @@ export class AppRoot {
         <app-header/>
 
         <main>
-          <stencil-router>
+          <stencil-router id="router">
             <stencil-route-switch scrollTopOffset={0}>
               <stencil-route url='/' component='app-home' exact={true}/>
-              <stencil-route url='/program' component='app-program'/>
+              <stencil-route url='/program' component='app-program' exact={true}/>
+              <stencil-route url='/program/talk/:slug'
+                             component='app-program-talk-detail'/>
             </stencil-route-switch>
           </stencil-router>
         </main>
